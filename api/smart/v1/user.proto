@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package smart.v1;
+option go_package = "github.com/nartvt/smart-service/api/nartvt/v1;v1";
+
+import "google/api/annotations.proto";
+import "smart/v1/model.proto";
+
+
+service UserService {
+  rpc Register (UserRegisterRequest) returns (UserRegisterResponse) {
+    option (google.api.http) = {
+        post: "/v1/user/register"
+        body: "*"
+      };
+  };
+
+  rpc Login (UserLoginRequest) returns (UserLoginResponse) {
+    option (google.api.http) = {
+        post: "/v1/user/login"
+        body: "*"
+    };
+  };
+}
+
+

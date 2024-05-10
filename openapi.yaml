@@ -1,0 +1,93 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: UserService API
+    version: 0.0.1
+paths:
+    /v1/user/login:
+        post:
+            tags:
+                - UserService
+            operationId: UserService_Login
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/smart.v1.UserLoginRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/smart.v1.UserLoginResponse'
+    /v1/user/register:
+        post:
+            tags:
+                - UserService
+            operationId: UserService_Register
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/smart.v1.UserRegisterRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/smart.v1.UserRegisterResponse'
+components:
+    schemas:
+        smart.v1.UserLoginRequest:
+            type: object
+            properties:
+                email:
+                    type: string
+                userName:
+                    type: string
+                password:
+                    type: string
+        smart.v1.UserLoginResponse:
+            type: object
+            properties:
+                code:
+                    type: string
+                message:
+                    type: string
+                messageKey:
+                    type: string
+                token:
+                    type: string
+                userName:
+                    type: string
+        smart.v1.UserRegisterRequest:
+            type: object
+            properties:
+                email:
+                    type: string
+                password:
+                    type: string
+                userName:
+                    type: string
+                phoneNumber:
+                    type: string
+            description: |-
+                keep simple, user oder require update remaining info, ex: phone,
+                 address, ....
+        smart.v1.UserRegisterResponse:
+            type: object
+            properties:
+                code:
+                    type: string
+                message:
+                    type: string
+                messageKey:
+                    type: string
+tags:
+    - name: UserService

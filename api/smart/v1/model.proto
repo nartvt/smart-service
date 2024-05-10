@@ -1,0 +1,32 @@
+syntax = "proto3";
+package smart.v1;
+option go_package = "github.com/nartvt/smart-service/api/nartvt/v1;v1";
+
+// keep simple, user oder require update remaining info, ex: phone,
+// address, ....
+message UserRegisterRequest {
+  string email = 1;
+  string password = 2;
+  string user_name = 3;
+  string phone_number = 4;
+}
+
+message UserRegisterResponse {
+  string code = 1;
+  string message = 2;
+  string message_key = 3;
+}
+
+message UserLoginRequest {
+  string email = 1;
+  string user_name = 2;
+  string password = 3;
+}
+
+message UserLoginResponse {
+  string code = 1;
+  string message = 2;
+  string message_key = 3;
+  string token = 4;
+  string user_name = 5;
+}
